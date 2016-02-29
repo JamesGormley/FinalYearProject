@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2737f58ef9edb45a69f326afead806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullitSpeed: 3
-  bullitRange: 5
+  bullitSpeed: 20
+  bullitRange: 10
 --- !u!135 &13532318
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -142,11 +142,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: bullitSpeed
-      value: 3
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: bullitRange
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

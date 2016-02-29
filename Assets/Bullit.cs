@@ -11,6 +11,8 @@ public class Bullit : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+
+        //  **** Vector3.forward -- Forward or Up depends heavily on orientation of axis when exported from blender 
         transform.Translate(Vector3.forward * Time.deltaTime * bullitSpeed);
         maxDistance += Time.deltaTime * bullitSpeed;
         //Check if bullit is gone past maximum range. Destroy if so
