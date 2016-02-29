@@ -6,16 +6,9 @@ public class StandardTurret : MonoBehaviour {
     public GameObject projectile;
     public Transform barrelPos;
     public Transform sphere;
-    public float reloadSpeed;
-    public float rotationSpeed;
-    public float timeToFire;
     public Transform target;
-    
-
+    public float reloadSpeed;
     private float nextShot;
-    private float nextMove;
-    private Quaternion turretRotation;
-    private Vector3 aimAt;
 
 	
 	// Update is called once per frame
@@ -23,57 +16,64 @@ public class StandardTurret : MonoBehaviour {
 	    //Check if a target is present
         if(target)
         {
-            //Check if the turret has waited the correct time before moving again
-            if(Time.time >= nextMove)
-            {
-                // Get position of target and lerp towards it. Use deltaTime as its always less than one 
-                calculateTargetPos(target.position);
-                //sphere.rotation = Quaternion.Lerp(sphere.rotation, turretRotation, Time.deltaTime * rotationSpeed);
-            }
-
             if(Time.time >= nextShot)
             {
+                calculateTargetPos(target.position);
                 shootBullit();
             }
         }
 	}
 
-
-
     //When an enemy enters set as target
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        //Check there is no target already, if true, set new target
+        if (!target)
         {
-            //This delays firing at first target slightly 
-            //in order to allow time for aiming. Then sets target
-            //timeToFire = Time.time + (reloadSpeed * 0.4f);
-            target = other.gameObject.transform;
+            if (other.gameObject.tag == "Enemy")
+            {
+                Debug.Log("Enemy in range");
+                //Set target for firing at
+                target = other.gameObject.transform;
+            }
         }
     }
 
-    void onTriggerExit (Collider other)
+    // This fires if a target enters the collider before another one leaves. Otherwise second target will not be found
+    void OnTriggerStay(Collider other)
     {
+        if (target == null)
+        {
+            if (other.gameObject.tag == "Enemy")
+            {
+                target = other.transform;
+            }
+        }
+    }
+
+    // When target leaves collider, set to null. OnTriggerStay will find targets already in collider.
+    void OnTriggerExit(Collider other)
+    {
+        
         if (other.gameObject.transform == target)
         {
+            Debug.Log("Enemy out of range");
             target = null;
         }
     }
 
+    //Look at target
     void calculateTargetPos (Vector3 target)
     {
         // Rotate to look at target
-        //aimAt = new Vector3(target.x, target.y, target.z);
-        //turretRotation = Quaternion.LookRotation(target);
         sphere.LookAt(target);
     }
 
+    //Fire/Instantiate projectile on vector towards target (after reload time reached)
     void shootBullit()
     {
+        //Reload time calculated and waited for before instantiating bullit
         nextShot = Time.time + reloadSpeed;
-        //nextMove = Time.time + timeToFire;
-
-       
         GameObject bullit = (GameObject)Instantiate(projectile, barrelPos.position, barrelPos.rotation);
         
     }
