@@ -5,6 +5,7 @@ public class TowerPlatform : MonoBehaviour {
 
 
     public GameObject turret;
+    private GameObject g;
     private Color startcolor;
 
     //Change colour of platform when mouse hovers over it
@@ -23,9 +24,13 @@ public class TowerPlatform : MonoBehaviour {
     //Instantiate tower when platform clicked. 
     void OnMouseUpAsButton()
     {
-        // Instantiate tower on clicked platform + 0.2 in y direction for correct height
-        GameObject g = (GameObject)Instantiate(turret);
-        g.transform.position = transform.position + new Vector3(0, 0.2f, 0);
+        //Check no tower in place already
+        if (!g)
+        {
+            // Instantiate tower on clicked platform + 0.2 in y direction for correct height
+            g = (GameObject)Instantiate(turret);
+            g.transform.position = transform.position + new Vector3(0, 0.2f, 0); 
+        }
     }
 
 

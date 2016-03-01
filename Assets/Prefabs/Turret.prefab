@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 425332}
   - 33: {fileID: 3319282}
   - 23: {fileID: 2308832}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TurretBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 494796}
   - 135: {fileID: 13525346}
   - 114: {fileID: 11446440}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 453602}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BarrelPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - 33: {fileID: 3359540}
   - 135: {fileID: 13535002}
   - 23: {fileID: 2307960}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   - 4: {fileID: 498684}
   - 33: {fileID: 3396534}
   - 23: {fileID: 2332516}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Barrel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 149152}
