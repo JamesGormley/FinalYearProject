@@ -57,7 +57,6 @@ public class StandardTurret : MonoBehaviour {
         
         if (other.gameObject.transform == target)
         {
-            Debug.Log("Enemy out of range");
             target = null;
         }
     }
