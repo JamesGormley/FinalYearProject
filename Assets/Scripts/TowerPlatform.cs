@@ -8,26 +8,18 @@ public class TowerPlatform : MonoBehaviour {
     private GameObject g;
     private Color startcolor;
 
-
-    void Start()
-    {
-        //tp = tp.GetComponent<TowerPlatform>();
-
-        gScript = gScript.GetComponent<GUIScript>();
-        
-    }
-
-    void Update()
-    {
-        if (gScript.stdTurretBtnClicked == false)
-        {
-            Debug.Log("Its false dummy");
-        }
-        if (gScript.stdTurretBtnClicked == true)
-        {
-            Debug.Log("Its true dummy");
-        }
-    }
+    // FOR DEBUGGING ONLY. CHECKING IF BUTTON IN GUISCRIPT CLICKED
+    //void Update()
+    //{
+    //    if (gScript.stdTurretBtnClicked == false)
+    //    {
+    //        Debug.Log("Its false dummy");
+    //    }
+    //    if (gScript.stdTurretBtnClicked == true)
+    //    {
+    //        Debug.Log("Its true dummy");
+    //    }
+    //}
 
 
 
@@ -48,6 +40,7 @@ public class TowerPlatform : MonoBehaviour {
     //Instantiate tower when platform clicked. 
     void OnMouseUpAsButton()
     {
+        //Check if standard turret button has been clicked. This is from the GUIScript
         if (gScript.stdTurretBtnClicked == true)
         {
             //Check no tower in place already

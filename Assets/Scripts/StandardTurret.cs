@@ -32,7 +32,7 @@ public class StandardTurret : MonoBehaviour {
         {
             if (other.gameObject.tag == "Enemy")
             {
-                Debug.Log("Enemy in range");
+                //Debug.Log("Enemy in range");
                 //Set target for firing at
                 target = other.gameObject.transform;
             }
