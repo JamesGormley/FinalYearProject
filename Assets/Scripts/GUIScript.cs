@@ -3,8 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class GUIScript : MonoBehaviour {
-
-    public Button standardTurretBtn;
+    
     public bool stdTurretBtnClicked = false;
 
 
@@ -17,7 +16,7 @@ public class GUIScript : MonoBehaviour {
 
     
 
-    public void test()
+    public void stdTurretBuild()
     {
         stdTurretBtnClicked = true;
         //Debug.Log("Its on in GUi");
