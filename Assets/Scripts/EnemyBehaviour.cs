@@ -18,4 +18,14 @@ public class EnemyBehaviour : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    //Destroy enemy when hit for testing purposes
+    //Minus hit from health value later
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Bullit")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
