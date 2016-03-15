@@ -177,6 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &43387588
 MeshRenderer:
@@ -264,6 +266,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &169072488
 MeshRenderer:
@@ -351,6 +355,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &181088116
 MeshRenderer:
@@ -595,6 +601,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &295056239
 MeshRenderer:
@@ -682,6 +690,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &329400245
 MeshRenderer:
@@ -769,6 +779,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &429255897
 MeshRenderer:
@@ -942,6 +954,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &445910935
 MeshRenderer:
@@ -1101,6 +1115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &472757471
 MeshRenderer:
@@ -1188,6 +1204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &490815550
 MeshRenderer:
@@ -1272,6 +1290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aff99c61c0aa9642a1a15817332fc42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gScript: {fileID: 1700711673}
   groundEnemy: {fileID: 102146, guid: ff49f46f3f4589742b7d997eaaf7732b, type: 2}
   killPoints: 10
   killFunds: 2
@@ -1283,6 +1302,7 @@ MonoBehaviour:
   fundsText: {fileID: 1107797058}
   score: 0
   funds: 10
+  sTurretCost: 5
   waveText: {fileID: 1130365775}
   numOfWaves: 10
   spawnInterval: 1.5
@@ -1333,6 +1353,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &558952771
 MeshRenderer:
@@ -1420,6 +1442,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &582700200
 MeshRenderer:
@@ -1533,6 +1557,7 @@ GameObject:
   - 224: {fileID: 625827307}
   - 222: {fileID: 625827309}
   - 114: {fileID: 625827308}
+  - 114: {fileID: 625827310}
   m_Layer: 5
   m_Name: SendNextWaveBtn
   m_TagString: Untagged
@@ -1595,6 +1620,69 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 625827306}
+--- !u!114 &625827310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 625827306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: .667999983, b: 0, a: 1}
+    m_HighlightedColor: {r: 0, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
+    m_ColorMultiplier: 1
+    m_FadeDuration: .100000001
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 625827308}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1700711673}
+        m_MethodName: sendNextWave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &725903671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,6 +1714,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &725903673
 MeshRenderer:
@@ -1786,6 +1876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &769556670
 MeshRenderer:
@@ -1873,6 +1965,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &896317551
 MeshRenderer:
@@ -2034,6 +2128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stdTurretBtnClicked: 0
+  sendNextWaveBtnClicked: 0
 --- !u!1 &942237285
 GameObject:
   m_ObjectHideFlags: 0
@@ -2065,6 +2160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &942237287
 MeshRenderer:
@@ -2152,6 +2249,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &999045798
 MeshRenderer:
@@ -2239,6 +2338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &1083659323
 MeshRenderer:
@@ -2592,6 +2693,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &1249307222
 MeshRenderer:
@@ -2779,6 +2882,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &1359534517
 MeshRenderer:
@@ -2992,6 +3097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stdTurretBtnClicked: 0
+  sendNextWaveBtnClicked: 0
 --- !u!4 &1700711674
 Transform:
   m_ObjectHideFlags: 0
@@ -3035,6 +3141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gScript: {fileID: 1700711673}
+  levelDriver: {fileID: 0}
+  ld: {fileID: 0}
   turret: {fileID: 149152, guid: 12bf173638b197a48af11348795440ea, type: 2}
 --- !u!23 &1733128923
 MeshRenderer:

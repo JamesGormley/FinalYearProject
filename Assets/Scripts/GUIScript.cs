@@ -5,6 +5,7 @@ using System.Collections;
 public class GUIScript : MonoBehaviour {
     
     public bool stdTurretBtnClicked = false;
+    public bool sendNextWaveBtnClicked = false;
 
 
     // Use this for initialization
@@ -19,5 +20,10 @@ public class GUIScript : MonoBehaviour {
     public void stdTurretBuild()
     {
         stdTurretBtnClicked = true;
+    }
+
+    public void sendNextWave()
+    {
+        sendNextWaveBtnClicked = true;
     }
 }

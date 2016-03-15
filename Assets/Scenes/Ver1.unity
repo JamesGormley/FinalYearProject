@@ -388,6 +388,34 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 19874684, guid: 3d021ddcf73620649ae4c28b2951aec6, type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874684, guid: 3d021ddcf73620649ae4c28b2951aec6, type: 2}
+      propertyPath: ShapeModule.radius
+      value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874684, guid: 3d021ddcf73620649ae4c28b2951aec6, type: 2}
+      propertyPath: EmissionModule.cnt0
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874684, guid: 3d021ddcf73620649ae4c28b2951aec6, type: 2}
+      propertyPath: ColorModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874684, guid: 3d021ddcf73620649ae4c28b2951aec6, type: 2}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
+      value: .507692337
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874684, guid: 3d021ddcf73620649ae4c28b2951aec6, type: 2}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
+      value: .979674816
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874684, guid: 3d021ddcf73620649ae4c28b2951aec6, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: .0599999987
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d021ddcf73620649ae4c28b2951aec6, type: 2}
   m_IsPrefabParent: 0
