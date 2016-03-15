@@ -4,23 +4,25 @@ using System.Collections;
 public class TowerPlatform : MonoBehaviour {
 
     public GUIScript gScript;
+
+    public GameObject levelDriver;
+    public LevelDriver ld;
+
     public GameObject turret;
     private GameObject g;
+
+
+
+    //Colour to change to on hover over platform
     private Color startcolor;
 
-    // FOR DEBUGGING ONLY. CHECKING IF BUTTON IN GUISCRIPT CLICKED
-    //void Update()
-    //{
-    //    if (gScript.stdTurretBtnClicked == false)
-    //    {
-    //        Debug.Log("Its false dummy");
-    //    }
-    //    if (gScript.stdTurretBtnClicked == true)
-    //    {
-    //        Debug.Log("Its true dummy");
-    //    }
-    //}
-
+    void Start()
+    {
+        //Make new gameobject of type levelscriptholder (empty script holder made in editor)
+        //Access script component on that object
+        levelDriver = GameObject.Find("LevelScriptHolder");
+        ld = levelDriver.GetComponent<LevelDriver>();
+    }
 
 
 
@@ -43,12 +45,15 @@ public class TowerPlatform : MonoBehaviour {
         //Check if standard turret button has been clicked. This is from the GUIScript
         if (gScript.stdTurretBtnClicked == true)
         {
-            //Check no tower in place already
-            if (!g)
+            //Check no tower in place already and enough funds are present
+            if (!g && ld.funds >= ld.sTurretCost)
             {
                 // Instantiate tower on clicked platform + 0.2 in y direction for correct height
                 g = (GameObject)Instantiate(turret);
                 g.transform.position = transform.position + new Vector3(0, 0.2f, 0);
+
+                //Subtract from funds
+                ld.funds = ld.funds - ld.sTurretCost;
 
                 //Set standard turret button clicked variable back to false after tower built
                 gScript.stdTurretBtnClicked = false;

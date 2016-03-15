@@ -9,6 +9,8 @@ public class LevelDriver : MonoBehaviour {
 
     //Global variable for damage to powercore/base
     static float coreDamage = 0;
+    public int killPoints = 10;
+    public int killFunds = 2;
 
     //User variables
     public int userHealth = 20;
@@ -23,6 +25,7 @@ public class LevelDriver : MonoBehaviour {
     public Text fundsText;
     public int score = 0;
     public int funds = 0;
+    public int sTurretCost = 5;
 
     public Text waveText;
     private int waveNumber = 0;
@@ -33,7 +36,7 @@ public class LevelDriver : MonoBehaviour {
 
     // Vars for number of enemies in a wave and enemies currently in game
     public int numEnemies = 10;
-    private int enemyCounter = 0;
+    public int enemyCounter = 0;
 
     //Location enemies will spawn
     public Vector3 spawnLocation = new Vector3(0f, 0.5f, -10f);
@@ -60,6 +63,9 @@ public class LevelDriver : MonoBehaviour {
                 enemyCounter++;
             }
         }
+
+        UpdateGUI();
+        
 	
 	}
 
@@ -68,6 +74,7 @@ public class LevelDriver : MonoBehaviour {
     {
         nextSpawnTime += spawnInterval;
         GameObject enemy = (GameObject)Instantiate(groundEnemy, spawnLocation + Random.insideUnitSphere * spawnRandomiser, Quaternion.identity);
+
     }
 
     // Function to build the next wave
@@ -86,4 +93,12 @@ public class LevelDriver : MonoBehaviour {
         fundsText.text = "Funds         :" + funds;
         waveText.text = "Wave          :" + waveNumber;
     }
+
+    //Method called whenever standard enemy is destroyed
+    public void addScore()
+    {
+        score = score + killPoints;
+        funds = funds + killFunds;
+    }
+
 }

@@ -1247,7 +1247,7 @@ Transform:
 --- !u!1 &504252668
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 194686, guid: cc2996bef09b0a547bb6d4456f45bacb, type: 2}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
@@ -1263,7 +1263,8 @@ GameObject:
 --- !u!114 &504252669
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 11425036, guid: cc2996bef09b0a547bb6d4456f45bacb,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 504252668}
   m_Enabled: 1
@@ -1272,6 +1273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundEnemy: {fileID: 102146, guid: ff49f46f3f4589742b7d997eaaf7732b, type: 2}
+  killPoints: 10
+  killFunds: 2
   userHealth: 20
   userScore: 20
   waveInProgress: 0
@@ -1279,17 +1282,18 @@ MonoBehaviour:
   scoreText: {fileID: 448241626}
   fundsText: {fileID: 1107797058}
   score: 0
-  funds: 0
+  funds: 10
   waveText: {fileID: 1130365775}
   numOfWaves: 10
   spawnInterval: 1.5
   numEnemies: 10
+  enemyCounter: 0
   spawnLocation: {x: 2.5, y: .5, z: -12}
   spawnRandomiser: 4
 --- !u!4 &504252670
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 466538, guid: cc2996bef09b0a547bb6d4456f45bacb, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 504252668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}

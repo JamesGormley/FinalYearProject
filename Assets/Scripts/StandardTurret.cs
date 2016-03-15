@@ -4,6 +4,7 @@ using System.Collections;
 public class StandardTurret : MonoBehaviour {
 
     public GameObject projectile;
+    public GameObject fireExplosion;
     public Transform barrelPos;
     public Transform sphere;
     public Transform target;
@@ -74,6 +75,7 @@ public class StandardTurret : MonoBehaviour {
         //Reload time calculated and waited for before instantiating bullit
         nextShot = Time.time + reloadSpeed;
         GameObject bullit = (GameObject)Instantiate(projectile, barrelPos.position, barrelPos.rotation);
+        GameObject explosion = (GameObject)Instantiate(fireExplosion, barrelPos.position - Vector3.forward, barrelPos.rotation);
         
     }
 }
