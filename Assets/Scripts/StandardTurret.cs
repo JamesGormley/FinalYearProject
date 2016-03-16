@@ -74,8 +74,8 @@ public class StandardTurret : MonoBehaviour {
     {
         //Reload time calculated and waited for before instantiating bullit
         nextShot = Time.time + reloadSpeed;
-        GameObject bullit = (GameObject)Instantiate(projectile, barrelPos.position, barrelPos.rotation);
-        GameObject explosion = (GameObject)Instantiate(fireExplosion, barrelPos.position - Vector3.forward, barrelPos.rotation);
+        GameObject bullit = (GameObject)Instantiate(projectile, barrelPos.position + (Vector3.forward), barrelPos.rotation);
+        GameObject explosion = (GameObject)Instantiate(fireExplosion, barrelPos.position, barrelPos.rotation);
         
     }
 }

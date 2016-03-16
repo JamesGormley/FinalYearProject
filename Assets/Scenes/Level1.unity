@@ -424,7 +424,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 245165624}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.20000005, y: 5, z: 1.20000005}
@@ -1293,7 +1293,7 @@ MonoBehaviour:
   gScript: {fileID: 1700711673}
   groundEnemy: {fileID: 102146, guid: ff49f46f3f4589742b7d997eaaf7732b, type: 2}
   killPoints: 10
-  killFunds: 2
+  killFunds: 5
   userHealth: 20
   userScore: 20
   waveInProgress: 0
@@ -1301,8 +1301,8 @@ MonoBehaviour:
   scoreText: {fileID: 448241626}
   fundsText: {fileID: 1107797058}
   score: 0
-  funds: 10
-  sTurretCost: 5
+  funds: 100
+  sTurretCost: 50
   waveText: {fileID: 1130365775}
   numOfWaves: 10
   spawnInterval: 1

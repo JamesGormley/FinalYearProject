@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.21000004, y: -.5, z: -2.01999998}
+  m_LocalPosition: {x: -2.21000004, y: .5, z: -2.01999998}
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children:
   - {fileID: 425332}
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 183822, guid: f8310fe61e90b744ab9d895d8d626c0c, type: 2}
-  fireExplosion: {fileID: 113246, guid: 3d021ddcf73620649ae4c28b2951aec6, type: 2}
+  fireExplosion: {fileID: 196594, guid: 3d021ddcf73620649ae4c28b2951aec6, type: 2}
   barrelPos: {fileID: 453602}
   sphere: {fileID: 457172}
   target: {fileID: 0}
@@ -295,12 +295,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
-      value: -.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: fireExplosion
       value: 
-      objectReference: {fileID: 113246, guid: 3d021ddcf73620649ae4c28b2951aec6, type: 2}
+      objectReference: {fileID: 196594, guid: 3d021ddcf73620649ae4c28b2951aec6, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 149152}

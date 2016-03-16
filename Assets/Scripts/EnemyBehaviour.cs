@@ -6,6 +6,8 @@ public class EnemyBehaviour : MonoBehaviour {
     public GameObject levelDriver;
     public LevelDriver ld;
 
+    public GameObject killExplosion;
+
     public int enemyHealth = 10;
     public int damageValue = 5;
 
@@ -39,6 +41,7 @@ public class EnemyBehaviour : MonoBehaviour {
             if (enemyHealth <= 0)
             {
                 Destroy(gameObject);
+                GameObject explosion = (GameObject)Instantiate(killExplosion, transform.position, transform.rotation);
             }
             Destroy(other.gameObject);
             ld.addScore();
