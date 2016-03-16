@@ -1305,11 +1305,12 @@ MonoBehaviour:
   sTurretCost: 5
   waveText: {fileID: 1130365775}
   numOfWaves: 10
-  spawnInterval: 1.5
+  spawnInterval: 1
   numEnemies: 10
   enemyCounter: 0
   spawnLocation: {x: 2.5, y: .5, z: -12}
   spawnRandomiser: 4
+  timer: 0
 --- !u!4 &504252670
 Transform:
   m_ObjectHideFlags: 0
@@ -1641,7 +1642,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: .667999983, b: 0, a: 1}
     m_HighlightedColor: {r: 0, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_PressedColor: {r: 0, g: .615999997, b: 1, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
     m_FadeDuration: .100000001

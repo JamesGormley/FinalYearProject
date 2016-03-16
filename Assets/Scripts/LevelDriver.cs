@@ -29,11 +29,10 @@ public class LevelDriver : MonoBehaviour {
     public int sTurretCost = 5;
 
     public Text waveText;
-    private int waveNumber = 1;
+    private int waveNumber = 0;
     public int numOfWaves = 10;
     // Vars for the time between enemy spawns
-    public float spawnInterval = 1.0f;
-    private float nextSpawnTime;
+    public float spawnInterval;
 
     // Vars for number of enemies in a wave and enemies currently in game
     public int numEnemies = 10;
@@ -43,21 +42,22 @@ public class LevelDriver : MonoBehaviour {
     public Vector3 spawnLocation = new Vector3(0f, 0.5f, -10f);
     public int spawnRandomiser = 4;
 
-
+    //variable to hold updated value for time.time as time.time causes problems with coroutine
+    public float timer;
 	// Use this for initialization
 	void Start () {
 
-        UpdateGUI();
-	
+        //UpdateGUI();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+
         if (gScript.sendNextWaveBtnClicked == true)
         {
             StartCoroutine("SpawnWave");
-            //gScript.sendNextWaveBtnClicked = false;
+            gScript.sendNextWaveBtnClicked = false;
         }
         UpdateGUI();
         
@@ -66,54 +66,33 @@ public class LevelDriver : MonoBehaviour {
     // Function to spawn enemies -- Random.insideUnitSphere varies the spawn location based on the value in the int variable, spawnRandomiser
     void SpawnEnemy()
     {
-        nextSpawnTime += spawnInterval;
+        //nextSpawnTime  += spawnInterval;
         GameObject enemy = (GameObject)Instantiate(groundEnemy, spawnLocation + Random.insideUnitSphere * spawnRandomiser, Quaternion.identity);
 
     }
 
-    ////Function to spawn wave
-    //void SpawnWave()
-    //{
-    //    //If enough time has passed, spawn an enemy
-    //    if (Time.time >= nextSpawnTime)
-    //    {
-    //        // Check number of enemies has not been reached
-    //        if (enemyCounter < numEnemies)
-    //        {
-    //            SpawnEnemy();
-    //            enemyCounter++;
-    //        }
-    //    }
-
-    //}
-
     //Coroutine to spawn wave, function to cpu intensive to have in Update()
     IEnumerator SpawnWave()
     {
-        if (enemyCounter == numEnemies)
+        //Increment wavenumber for display
+        waveNumber++;
+
+        //While less than nemEnemies (the wavesize) we spawn enemies and increase the count of enemies
+        //While loop stops on reaching the prerequisite number of enemies.
+        while (enemyCounter < numEnemies)
         {
-            gScript.sendNextWaveBtnClicked = false;
+            SpawnEnemy();
+            enemyCounter++;
+            yield return new WaitForSeconds(spawnInterval);
         }
-        if (Time.time >= nextSpawnTime)
-        {
-            if (enemyCounter < numEnemies)
-            {
 
-                SpawnEnemy();
-                enemyCounter++;
-
-            }
-        }
-        
-        yield return null;
-
+        BuildNextWave();
     }
 
     // Function to build the next wave
+    // Resets enemy counter, Increases the number of enemies for the next wave and decreases the spawn interval
     void BuildNextWave()
     {
-        //Increment wavenumber for display
-        waveNumber++;
         enemyCounter = 0;
         numEnemies = numEnemies + 2;
         spawnInterval = ((spawnInterval / 100) * 95);
@@ -136,3 +115,18 @@ public class LevelDriver : MonoBehaviour {
     }
 
 }
+////Function to spawn wave
+    //void SpawnWave()
+    //{
+    //    //If enough time has passed, spawn an enemy
+    //    if (Time.time >= nextSpawnTime)
+    //    {
+    //        // Check number of enemies has not been reached
+    //        if (enemyCounter < numEnemies)
+    //        {
+    //            SpawnEnemy();
+    //            enemyCounter++;
+    //        }
+    //    }
+
+    //}
