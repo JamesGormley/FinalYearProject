@@ -8,14 +8,23 @@ public class LevelDriver : MonoBehaviour {
 
     public GameObject groundEnemy;
 
-    //Global variable for damage to powercore/base
-    static float coreDamage = 0;
+    //Damage applied when powerCore hit
+    public int baseDamage = 1;
+    //Points and funds for a kill
     public int killPoints = 10;
     public int killFunds = 2;
 
     //User variables
-    public int userHealth = 20;
-    public int userScore = 20;
+    public int userHealth = 10;
+    public int score = 0;
+    public int funds = 0;
+
+    //Current wavwnumber and total number of waves respectivley
+    private int waveNumber = 0;
+    public int numOfWaves = 10;
+
+    //Price for a standard turret
+    public int sTurretCost = 50;
 
     //Bools to indicate ongoing wave and whether to spawn enemies 
     public bool waveInProgress = false;
@@ -24,14 +33,12 @@ public class LevelDriver : MonoBehaviour {
     //Variables to be displayed on GUI
     public Text scoreText;
     public Text fundsText;
-    public int score = 0;
-    public int funds = 0;
-    public int sTurretCost = 5;
-
+    public Text healthText;
     public Text waveText;
-    private int waveNumber = 0;
-    public int numOfWaves = 10;
-    // Vars for the time between enemy spawns
+    
+    
+
+    // Var for the time between enemy spawns
     public float spawnInterval;
 
     // Vars for number of enemies in a wave and enemies currently in game
@@ -40,10 +47,10 @@ public class LevelDriver : MonoBehaviour {
 
     //Location enemies will spawn
     public Vector3 spawnLocation = new Vector3(0f, 0.5f, -10f);
+    //Spawn randomiser varies the exact location enemies spawn. 4 works well
     public int spawnRandomiser = 4;
 
-    //variable to hold updated value for time.time as time.time causes problems with coroutine
-    public float timer;
+
 	// Use this for initialization
 	void Start () {
 
@@ -53,7 +60,7 @@ public class LevelDriver : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
+        //Start wave coroutine when button clicked is true and set button back to false
         if (gScript.sendNextWaveBtnClicked == true)
         {
             StartCoroutine("SpawnWave");
@@ -104,7 +111,8 @@ public class LevelDriver : MonoBehaviour {
         //
         scoreText.text = "Score          :" + score;
         fundsText.text = "Funds         :" + funds;
-        waveText.text = "Wave          :" + waveNumber;
+        waveText.text = "Wave           :" + waveNumber;
+        healthText.text = "Health         :" + userHealth;
     }
 
     //Method called whenever standard enemy is destroyed
@@ -114,7 +122,16 @@ public class LevelDriver : MonoBehaviour {
         funds = funds + killFunds;
     }
 
+    //Method called when enemy crashes into basee
+    public void powerCoreDamage()
+    {
+        userHealth = userHealth - baseDamage;
+    }
+
 }
+
+
+
 ////Function to spawn wave
     //void SpawnWave()
     //{
