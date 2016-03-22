@@ -21,9 +21,10 @@ public class MenuScript : MonoBehaviour {
         quitWindow.enabled = false;
         optionsWindow.enabled = false;
 
-        defendNowBtn = defendNowBtn.GetComponent<Button>();
-        optionsBtn = optionsBtn.GetComponent<Button>();
-        exitBtn = exitBtn.GetComponent<Button>();
+        // *** Works fine without these ***
+        //defendNowBtn = defendNowBtn.GetComponent<Button>();
+        //optionsBtn = optionsBtn.GetComponent<Button>();
+        //exitBtn = exitBtn.GetComponent<Button>();
 
 	}
 
@@ -61,6 +62,12 @@ public class MenuScript : MonoBehaviour {
         defendNowBtn.enabled = true;
         optionsBtn.enabled = true;
         exitBtn.enabled = true;
+    }
+
+    //When yes pressed in quitWindow
+    public void yesPressed()
+    {
+        Application.Quit();
     }
 
     //Set music to on when button pressed in options menu

@@ -60,6 +60,11 @@ public class LevelDriver : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if (userHealth == 0)
+        {
+            Application.LoadLevel("GameOver");
+        }
+
         //Start wave coroutine when button clicked is true and set button back to false
         if (gScript.sendNextWaveBtnClicked == true)
         {
