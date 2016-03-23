@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: .615999997, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -534,7 +534,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Player            Score
+  m_Text: Player       Score
 --- !u!222 &954249715
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -555,7 +555,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -350, y: 240}
+  m_AnchoredPosition: {x: -300, y: 240}
   m_SizeDelta: {x: 600, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1099661662
