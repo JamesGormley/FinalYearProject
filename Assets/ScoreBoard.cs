@@ -21,20 +21,16 @@ public class ScoreBoard : MonoBehaviour {
     //This will be the position our first text prefab will be instantiated to
     public Vector3 userNamePos;
     public Vector3 userScorePos;
-    
 
-    private string privateKey = "superSecretKey";
-    private string addScoreURL = "http://localhost/FYP/addscore.php";  //Change this to online url when db hosted online
-    private string displayScoreURL = "http://localhost/FYP/display.php"; // as above
-    private int highScore;
-    private string userName;
-    private int rank;
+    private string displayScoreURL = "http://localhost/FYP/display.php"; //Change to online address when db hosted online
+    private string checkRankURL = "http://localhost/FYP/checkRank.php?";
 
 
     // Use this for initialization
     void Start () {
 
         StartCoroutine("DisplayScores");
+        StartCoroutine("CompareUser");
     }
 	
 	// Update is called once per frame
@@ -83,7 +79,7 @@ public class ScoreBoard : MonoBehaviour {
                 //Access and set the text in that text component
                 userNameText = userDisplayObj.GetComponent<Text>();
 
-                //This if is needed for correct formatting of display
+                //This if statement is needed for correct formatting of display 
                 if (i == 0)
                 {
                     userNameText.text = "" + (i + 1) + "  " + names[i];
@@ -92,7 +88,7 @@ public class ScoreBoard : MonoBehaviour {
                 {
                     userNameText.text = "" + (i + 1) + " " + names[i];
                 }
-                //This moves the position down 10 on the y axis to place the next username
+                //This moves the position by 12 on the y axis to place the next username
                 userNamePos -= new Vector3(0, 12, 0);
             }
 
@@ -109,6 +105,31 @@ public class ScoreBoard : MonoBehaviour {
                 //This moves the position by 12 on the y axis to place the next username
                 userScorePos -= new Vector3(0, 12, 0);
             }
+        }
+    }
+
+    //This method pulls the score corresponding to the username given in the last scene
+    IEnumerator CompareUser()
+    {
+        WWW checkScores = new WWW(checkRankURL + "name=" + WWW.EscapeURL(UploadScoreScript.finalUserName));
+        yield return checkScores;
+
+
+        if (checkScores.error != null)
+        {
+            Debug.Log(checkScores.error);
+        }
+        else
+        {
+            string returnedUser = checkScores.text;
+            Debug.Log(returnedUser);
+
+            GameObject scoreDisplayObj = (GameObject)Instantiate(scoreDisplayBox, new Vector3 (-300, 50, 0), Quaternion.identity);
+            //Set the box as a child of the canvas in the scene
+            scoreDisplayObj.transform.SetParent(canvas.transform, false);
+            //Access and set the text in that text component
+            scoreText = scoreDisplayObj.GetComponent<Text>();
+            scoreText.text = "" + returnedUser + "points.";
         }
     }
 }

@@ -12,12 +12,6 @@ public class GUIScript : MonoBehaviour {
     public bool pauseBtnClicked = false;
 
 
-    // Use this for initialization
-    void Start ()
-    {
-
-    }
-
     
     //If standard turret button clicked set to true to build turret when platform clicked. After platform clicked, reset to false
     public void stdTurretBuild()
@@ -32,7 +26,17 @@ public class GUIScript : MonoBehaviour {
 
     public void pauseGame()
     {
-        pauseBtnClicked = true;
-        //Time.timeScale = 0.0f;
+        if (pauseBtnClicked == false)
+        {
+            Time.timeScale = 0.0f;
+            pauseBtnClicked = true;
+        }
+  
+        else if (pauseBtnClicked == true)
+        {
+            Time.timeScale = 1.0f;
+            pauseBtnClicked = false;
+        }
     }
+
 }

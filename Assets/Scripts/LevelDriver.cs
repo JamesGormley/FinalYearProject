@@ -12,7 +12,7 @@ public class LevelDriver : MonoBehaviour {
     public int baseDamage = 1;
     //Points and funds for a kill
     public int killPoints = 10;
-    public int killFunds = 2;
+    public int killFunds; //set this in editor
 
     //User variables 
     //Score declared as static for access in other scenes
@@ -23,7 +23,6 @@ public class LevelDriver : MonoBehaviour {
     //Current wavwnumber and total number of waves respectivley
     //Wavenumber declared as static for access in other scenes
     static public int waveNumber = 0;
-    public int numOfWaves = 10;
 
     //Price for a standard turret
     public int sTurretCost = 50;
