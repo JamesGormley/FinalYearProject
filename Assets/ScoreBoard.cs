@@ -106,7 +106,7 @@ public class ScoreBoard : MonoBehaviour {
                 //Access and set the text in that text component
                 scoreText = scoreDisplayObj.GetComponent<Text>();
                 scoreText.text = "" + scores[i];
-                //This moves the position down 10 on the y axis to place the next username
+                //This moves the position by 12 on the y axis to place the next username
                 userScorePos -= new Vector3(0, 12, 0);
             }
         }

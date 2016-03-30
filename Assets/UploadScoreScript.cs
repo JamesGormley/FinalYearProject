@@ -4,23 +4,35 @@ using System.Collections;
 
 
 //This script will deal with taking the players name from an input field and their score from the game and uploading them both to the db
-public class UploadScoreScript : MonoBehaviour {
-    
-    //Maximum allowed length of name. 16 is the value of the varchar in the db
-    private int maxNameLength = 16;
+public class UploadScoreScript : MonoBehaviour { 
 
-    //Variable to hold username which will be uploaded with score. Begins empty
-    private string userName = string.Empty;
+    //Variable to hold username which will be uploaded with score. Static for access in other scenes
+    static public string userName;
 
-    private int userScore;
+    public InputField nameField;
+
+    public Text roundText;
+    public Text scoretext;
+
+    public Button submitBtn;
+
 
     // Use this for initialization
     void Start () {
-	
-	}
+        
+        roundText.text = "You reached round: " + LevelDriver.waveNumber;
+        scoretext.text = "Your score is: " + LevelDriver.score;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+
+        
+        Debug.Log(userName + userScore.ToString());
+    }
+
+    public void submitButtonClicked()
+    {
+        userName = nameField.text;
+    }
 }

@@ -14,13 +14,15 @@ public class LevelDriver : MonoBehaviour {
     public int killPoints = 10;
     public int killFunds = 2;
 
-    //User variables
+    //User variables 
+    //Score declared as static for access in other scenes
     public int userHealth = 10;
-    public int score = 0;
+    static public int score = 0;
     public int funds = 0;
 
     //Current wavwnumber and total number of waves respectivley
-    private int waveNumber = 0;
+    //Wavenumber declared as static for access in other scenes
+    static public int waveNumber = 0;
     public int numOfWaves = 10;
 
     //Price for a standard turret
@@ -62,7 +64,7 @@ public class LevelDriver : MonoBehaviour {
 
         if (userHealth == 0)
         {
-            Application.LoadLevel("GameOver");
+            Application.LoadLevel("UploadScore");
         }
 
         //Start wave coroutine when button clicked is true and set button back to false
@@ -134,21 +136,3 @@ public class LevelDriver : MonoBehaviour {
     }
 
 }
-
-
-
-////Function to spawn wave
-    //void SpawnWave()
-    //{
-    //    //If enough time has passed, spawn an enemy
-    //    if (Time.time >= nextSpawnTime)
-    //    {
-    //        // Check number of enemies has not been reached
-    //        if (enemyCounter < numEnemies)
-    //        {
-    //            SpawnEnemy();
-    //            enemyCounter++;
-    //        }
-    //    }
-
-    //}
