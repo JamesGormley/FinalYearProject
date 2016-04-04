@@ -3,9 +3,10 @@ using System.Collections;
 
 public class EnemyBehaviour : MonoBehaviour {
 
+    //Objects needed to access methods from LevelDriver class
     public GameObject levelDriver;
     public LevelDriver ld;
-
+    //Holder for explosion prefab
     public GameObject killExplosion;
 
     public int enemyHealth = 10;
@@ -31,19 +32,23 @@ public class EnemyBehaviour : MonoBehaviour {
 	}
 	
 
-    //Destroy enemy when hit for testing purposes
     //Minus hit from health value later
     void OnTriggerEnter(Collider other)
     {
+        //Check the other object is a bullit
         if (other.tag == "Bullit")
         {
+            //subtract damage value from health
             enemyHealth = enemyHealth - damageValue;
             if (enemyHealth <= 0)
             {
+                //Destroy enemy prefab when health is less than zero and instantiate an explosion prefab
                 Destroy(gameObject);
                 GameObject explosion = (GameObject)Instantiate(killExplosion, transform.position, transform.rotation);
             }
+            //Destroy the projectile that hit the enemy
             Destroy(other.gameObject);
+            //Add points for the kill using method in LevelDriver
             ld.addScore();
         }
     }

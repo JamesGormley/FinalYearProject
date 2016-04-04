@@ -823,6 +823,7 @@ MonoBehaviour:
   canvas: {fileID: 1871044034}
   uNameDisplayBox: {fileID: 160920, guid: 8c227cfc9f35e724b87742e2180a44ce, type: 2}
   scoreDisplayBox: {fileID: 160920, guid: 8c227cfc9f35e724b87742e2180a44ce, type: 2}
+  individDisplayBox: {fileID: 160920, guid: 8c227cfc9f35e724b87742e2180a44ce, type: 2}
   userNamePos: {x: -400, y: 200, z: 0}
   userScorePos: {x: -100, y: 200, z: 0}
 --- !u!1 &2092345247

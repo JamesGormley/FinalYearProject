@@ -4,7 +4,10 @@ using System.Collections;
 
 public class LevelDriver : MonoBehaviour {
 
+    //Objects to access variables in other scripts
     public GUIScript gScript;
+    public EnemyBehaviour eScript; //Not yet required as not yet functional  
+    
 
     public GameObject groundEnemy;
 
@@ -13,6 +16,7 @@ public class LevelDriver : MonoBehaviour {
     //Points and funds for a kill
     public int killPoints = 10;
     public int killFunds; //set this in editor
+    public int enemyIncrease; // This is the value the enemies health will increase by each round
 
     //User variables 
     //Score declared as static for access in other scenes
@@ -50,17 +54,15 @@ public class LevelDriver : MonoBehaviour {
     public Vector3 spawnLocation = new Vector3(0f, 0.5f, -10f);
     //Spawn randomiser varies the exact location enemies spawn. 4 works well
     public int spawnRandomiser = 4;
-
-
-	// Use this for initialization
-	void Start () {
-
-        //UpdateGUI();
-	}
 	
+    void Start ()
+    {
+        eScript = GetComponent<EnemyBehaviour>();
+    }
 	// Update is called once per frame
 	void Update () {
 
+        //When the level ends (i.e. user runs out of health, load the next scene
         if (userHealth == 0)
         {
             Application.LoadLevel("UploadScore");
@@ -72,6 +74,7 @@ public class LevelDriver : MonoBehaviour {
             StartCoroutine("SpawnWave");
             gScript.sendNextWaveBtnClicked = false;
         }
+        //Method to update display
         UpdateGUI();
         
 	}
@@ -90,15 +93,16 @@ public class LevelDriver : MonoBehaviour {
         //Increment wavenumber for display
         waveNumber++;
 
-        //While less than nemEnemies (the wavesize) we spawn enemies and increase the count of enemies
+        //While less than numEnemies (the wavesize) we spawn enemies and increase the count of enemies
         //While loop stops on reaching the prerequisite number of enemies.
+        //Wait for the spawninterval after each spawn
         while (enemyCounter < numEnemies)
         {
             SpawnEnemy();
             enemyCounter++;
             yield return new WaitForSeconds(spawnInterval);
         }
-
+        //Method to build next wave
         BuildNextWave();
     }
 
@@ -107,8 +111,13 @@ public class LevelDriver : MonoBehaviour {
     void BuildNextWave()
     {
         enemyCounter = 0;
-        numEnemies = numEnemies + 2;
-        spawnInterval = ((spawnInterval / 100) * 95);
+        numEnemies = numEnemies + 5;
+        spawnInterval = ((spawnInterval / 100) * 90);
+
+        // *** Causing null reference exception  ***
+        //Increase the health of the enemies each wave
+        //eScript.enemyHealth = (eScript.enemyHealth + enemyIncrease);
+
     }
 
     // Updates values on GUI (obviously...)

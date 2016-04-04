@@ -15,6 +15,8 @@ public class ScoreBoard : MonoBehaviour {
     //these gameobjects will hold the prefab we instantiate each user name and highscore into
     public GameObject uNameDisplayBox;
     public GameObject scoreDisplayBox;
+    //Object for the players rank and score and name, under scoreboard. Needs to be wider than the others
+    public GameObject individDisplayBox;
     //Holders for the text components of the above gameobjects
     private Text userNameText;
     private Text scoreText;
@@ -22,13 +24,15 @@ public class ScoreBoard : MonoBehaviour {
     public Vector3 userNamePos;
     public Vector3 userScorePos;
 
+
+    //URLS for the php files used to access database
     private string displayScoreURL = "http://localhost/FYP/display.php"; //Change to online address when db hosted online
     private string checkRankURL = "http://localhost/FYP/checkRank.php?";
 
 
     // Use this for initialization
     void Start () {
-
+        //Coroutines to display the top 5 scores and the users last score
         StartCoroutine("DisplayScores");
         StartCoroutine("CompareUser");
     }
@@ -124,12 +128,12 @@ public class ScoreBoard : MonoBehaviour {
             string returnedUser = checkScores.text;
             Debug.Log(returnedUser);
 
-            GameObject scoreDisplayObj = (GameObject)Instantiate(scoreDisplayBox, new Vector3 (-300, 50, 0), Quaternion.identity);
+            GameObject userScorecoreDisplayObj = (GameObject)Instantiate(individDisplayBox, new Vector3 (-400, 50, 0), Quaternion.identity);
             //Set the box as a child of the canvas in the scene
-            scoreDisplayObj.transform.SetParent(canvas.transform, false);
+            userScorecoreDisplayObj.transform.SetParent(canvas.transform, false);
             //Access and set the text in that text component
-            scoreText = scoreDisplayObj.GetComponent<Text>();
-            scoreText.text = "" + returnedUser + "points.";
+            scoreText = userScorecoreDisplayObj.GetComponent<Text>();
+            scoreText.text = "Rank: " + returnedUser + "points.";
         }
     }
 }

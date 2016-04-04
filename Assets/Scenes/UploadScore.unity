@@ -1131,7 +1131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d483c6ee3ca7e28498574cf1befefc02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userName: Unknown
   nameField: {fileID: 1060902253}
   roundText: {fileID: 363314764}
   scoretext: {fileID: 1829254722}
