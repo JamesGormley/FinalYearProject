@@ -23,7 +23,8 @@ public class GUIScript : MonoBehaviour {
     {
         sendNextWaveBtnClicked = true;
     }
-
+    //This method effectively pauses the game by setting the timescale to 0 if pauseBtnClicked is false. It then sets it to true
+    //if pauseBtnClicked is true, it unpauses the game and sets it to false
     public void pauseGame()
     {
         if (pauseBtnClicked == false)

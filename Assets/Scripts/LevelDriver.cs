@@ -63,7 +63,7 @@ public class LevelDriver : MonoBehaviour {
 	void Update () {
 
         //When the level ends (i.e. user runs out of health, load the next scene
-        if (userHealth == 0)
+        if (userHealth <= 0)
         {
             Application.LoadLevel("UploadScore");
         }

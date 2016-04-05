@@ -19,8 +19,11 @@ public class UploadScoreScript : MonoBehaviour {
     //Button used for submitting user name and initiating the post to the db
     public Button submitBtn;
 
+    //this is the address of the online php script used to post to the db
+    //private string addScoreURL = "http://www.unknowndefence.comli.com/addScoreOnline.php?";
+
     //this is the address of the php script used to post to the db
-    private string addScoreURL = "http://localhost/FYP/addscore.php?";  //Change this to online url when db hosted online
+    private string addScoreURL = "http://localhost/FYP/addScore.php?";
 
     // Use this for initialization
     void Start () {
@@ -44,7 +47,7 @@ public class UploadScoreScript : MonoBehaviour {
     IEnumerator AddScore(string name, int score)
     {
 
-
+        ///Here is where we send the URL with the variables for name and score
         WWW ScorePost = new WWW(addScoreURL + "name=" + WWW.EscapeURL(name) + "&score=" + score);
         yield return ScorePost;
 
@@ -57,7 +60,7 @@ public class UploadScoreScript : MonoBehaviour {
         else
         {
             //Error message if post fails
-            Debug.Log(ScorePost.error);
+            Debug.Log("Not Posted");
         }
     }
 

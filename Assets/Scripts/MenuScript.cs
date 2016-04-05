@@ -12,19 +12,10 @@ public class MenuScript : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
-
-        //Initialise button and canvas variables  
-        quitWindow = quitWindow.GetComponent<Canvas>();
-        optionsWindow = optionsWindow.GetComponent<Canvas>();
+    void Start () { 
         //Disable quitwindow until exit button pressed
         quitWindow.enabled = false;
         optionsWindow.enabled = false;
-
-        // *** Works fine without these ***
-        //defendNowBtn = defendNowBtn.GetComponent<Button>();
-        //optionsBtn = optionsBtn.GetComponent<Button>();
-        //exitBtn = exitBtn.GetComponent<Button>();
 
 	}
 

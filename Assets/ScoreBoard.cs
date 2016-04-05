@@ -1,5 +1,5 @@
 ﻿////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//  This code referenced from 
+//  Code in this class referenced from 
 //  gamedevelopment.tutsplus.com/tutorials/how-to-code-a-self-hosted-phpsql-leaderboard-for-your-game--gamedev-11627
 //  (Edited)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,8 +25,12 @@ public class ScoreBoard : MonoBehaviour {
     public Vector3 userScorePos;
 
 
-    //URLS for the php files used to access database
-    private string displayScoreURL = "http://localhost/FYP/display.php"; //Change to online address when db hosted online
+    //URLS for the online php files used to access database
+    //private string displayScoreURL = "http://www.unknowndefence.comli.com/displayOnline.php"; 
+    //private string checkRankURL = "http://www.unknowndefence.comli.com/checkRankOnline.php?";
+
+    //URLS for the online php files used to access database
+    private string displayScoreURL = "http://localhost/FYP/display.php";
     private string checkRankURL = "http://localhost/FYP/checkRank.php?";
 
 
@@ -41,6 +45,13 @@ public class ScoreBoard : MonoBehaviour {
 	void Update () {
 	
 	}
+
+
+    //***********************************************************************************************************************
+    //  This code referenced from 
+    //  gamedevelopment.tutsplus.com/tutorials/how-to-code-a-self-hosted-phpsql-leaderboard-for-your-game--gamedev-11627
+    //  (Edited)
+    //***********************************************************************************************************************
 
     IEnumerator DisplayScores()
     {
@@ -136,4 +147,11 @@ public class ScoreBoard : MonoBehaviour {
             scoreText.text = "Rank: " + returnedUser + "points.";
         }
     }
+
+
+    //***********************************************************************************************************************
+    //  End of reference
+    //***********************************************************************************************************************
+
+
 }

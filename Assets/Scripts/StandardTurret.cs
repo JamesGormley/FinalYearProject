@@ -17,8 +17,10 @@ public class StandardTurret : MonoBehaviour {
 	    //Check if a target is present
         if(target)
         {
+            //if enough time has passed since the last shot, fire again
             if(Time.time >= nextShot)
             {
+                //methods to calculate the position of the target and fire a bullit
                 calculateTargetPos(target.position);
                 shootBullit();
             }
