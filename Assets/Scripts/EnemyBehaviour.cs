@@ -27,10 +27,7 @@ public class EnemyBehaviour : MonoBehaviour {
         //If objective present, move towards
         if(eObj)
             GetComponent<NavMeshAgent>().destination = eObj.transform.position;
-        
-	
 	}
-	
 
     //Minus hit from health value later
     void OnTriggerEnter(Collider other)

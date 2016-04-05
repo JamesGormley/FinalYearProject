@@ -80,9 +80,7 @@ public class ScoreBoard : MonoBehaviour {
                 }
                 else scores[Mathf.FloorToInt(i / 2)] = textlist[i];
 
-                
             }
-            
 
             //Loop through the array of names
             for (int i = 0; i < names.Length; i++)
@@ -122,6 +120,11 @@ public class ScoreBoard : MonoBehaviour {
             }
         }
     }
+    //***********************************************************************************************************************
+    //  End of reference
+    //***********************************************************************************************************************
+
+
 
     //This method pulls the score corresponding to the username given in the last scene
     IEnumerator CompareUser()
@@ -149,9 +152,7 @@ public class ScoreBoard : MonoBehaviour {
     }
 
 
-    //***********************************************************************************************************************
-    //  End of reference
-    //***********************************************************************************************************************
+ 
 
 
 }
